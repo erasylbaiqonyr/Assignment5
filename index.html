@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameZone | JavaScript Assignment 5</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="js/task1.js" defer></script>
+    <script src="js/task2.js" defer></script>
+    <script src="js/task3.js" defer></script>
+</head>
+<body>
+    <header class="hero">
+        <p class="eyebrow">JAVASCRIPT PROJECT</p>
+        <h1>GameZone</h1>
+        <p>Play, organize your tasks and book your next event.</p>
+        <nav>
+            <a href="#game">Number Game</a>
+            <a href="#board">Task Board</a>
+            <a href="#tickets">Ticket Builder</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="panel" id="game">
+            <p class="eyebrow">TASK 1</p>
+            <h2>Higher or Lower</h2>
+            <p>Guess if the next number will be higher or lower.</p>
+
+            <div class="number-box">
+                <span>Current number</span>
+                <strong id="currentNumber">50</strong>
+            </div>
+
+            <div class="button-row">
+                <button id="higherBtn">Higher ↑</button>
+                <button id="lowerBtn">Lower ↓</button>
+            </div>
+
+            <p id="gameMessage" class="message" aria-live="polite">
+                Choose Higher or Lower to start.
+            </p>
+
+            <div class="stats">
+                <div><span>Lives</span><strong id="lives">3</strong></div>
+                <div><span>Current streak</span><strong id="streak">0</strong></div>
+                <div><span>Best streak</span><strong id="bestStreak">0</strong></div>
+            </div>
+
+            <button id="restartGame" class="secondary">Restart Game</button>
+        </section>
+
+        <section class="panel" id="board">
+            <p class="eyebrow">TASK 2</p>
+            <h2>Task Board</h2>
+            <p>Manage your tasks and move them between columns.</p>
+
+            <form id="taskForm" class="task-form">
+                <label for="taskTitle">Task title</label>
+                <input id="taskTitle" type="text" required maxlength="80"
+                       placeholder="Enter a task">
+
+                <label for="taskTag">Tag</label>
+                <select id="taskTag">
+                    <option value="Study">Study</option>
+                    <option value="Work">Work</option>
+                    <option value="Personal">Personal</option>
+                </select>
+
+                <label for="taskPriority">Priority</label>
+                <select id="taskPriority">
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select>
+
+                <button type="submit">Add Task</button>
+            </form>
+
+            <label for="taskSearch">Search tasks</label>
+            <input id="taskSearch" type="search" placeholder="Search by title or tag">
+
+            <label for="tagFilter">Filter by tag</label>
+            <select id="tagFilter">
+                <option value="All">All tags</option>
+                <option value="Study">Study</option>
+                <option value="Work">Work</option>
+                <option value="Personal">Personal</option>
+            </select>
+
+            <div class="progress-track">
+                <div id="progressBar" class="progress-bar"></div>
+            </div>
+            <p id="progressText">0 of 10 tasks completed</p>
+            <p id="boardMessage" class="message" aria-live="polite"></p>
+
+            <div class="board">
+                <div class="column">
+                    <h3>To Do <span id="todoCount">0</span></h3>
+                    <div id="todoList" class="task-list"></div>
+                </div>
+                <div class="column">
+                    <h3>In Progress <span id="progressCount">0</span></h3>
+                    <div id="progressList" class="task-list"></div>
+                </div>
+                <div class="column">
+                    <h3>Done <span id="doneCount">0</span></h3>
+                    <div id="doneList" class="task-list"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel" id="tickets">
+            <p class="eyebrow">TASK 3</p>
+            <h2>Ticket Builder</h2>
+            <p>Enter your details and preview your event ticket.</p>
+
+            <div id="ticketErrors" class="error-summary"
+                 aria-live="polite" tabindex="-1"></div>
+
+            <form id="ticketForm" novalidate>
+                <div class="form-grid">
+                    <div class="field">
+                        <label for="customerName">Full name</label>
+                        <input id="customerName" name="customerName"
+                               autocomplete="name" required>
+                        <small class="field-error" id="customerNameError"></small>
+                    </div>
+
+                    <div class="field">
+                        <label for="customerEmail">Email</label>
+                        <input id="customerEmail" name="customerEmail"
+                               type="email" autocomplete="email" required>
+                        <small class="field-error" id="customerEmailError"></small>
+                    </div>
+
+                    <div class="field">
+                        <label for="eventDate">Event date</label>
+                        <select id="eventDate" name="eventDate" required>
+                            <option value="">Choose a date</option>
+                            <option value="2026-11-15">November 15, 2026</option>
+                            <option value="2026-12-10">December 10, 2026</option>
+                            <option value="2026-12-20">December 20, 2026</option>
+                        </select>
+                        <small class="field-error" id="eventDateError"></small>
+                    </div>
+
+                    <div class="field">
+                        <label for="ticketType">Ticket type</label>
+                        <select id="ticketType" name="ticketType" required>
+                            <option value="">Choose a type</option>
+                            <option value="Standard">Standard — $50</option>
+                            <option value="VIP">VIP — $120</option>
+                            <option value="Student">Student — $30</option>
+                        </select>
+                        <small class="field-error" id="ticketTypeError"></small>
+                    </div>
+
+                    <div class="field">
+                        <label for="quantity">Quantity</label>
+                        <input id="quantity" name="quantity" type="number"
+                               min="1" max="6" value="1" required>
+                        <small class="field-error" id="quantityError"></small>
+                    </div>
+
+                    <div class="field">
+                        <label for="promoCode">Promo code</label>
+                        <input id="promoCode" name="promoCode"
+                               placeholder="Try SAVE10">
+                        <small class="field-error" id="promoCodeError"></small>
+                    </div>
+                </div>
+
+                <div class="ticket-preview">
+                    <p class="eyebrow">LIVE PREVIEW</p>
+                    <h3 id="previewEvent">Your Event Ticket</h3>
+                    <p>Name: <strong id="previewName">Not entered</strong></p>
+                    <p>Date: <strong id="previewDate">Not selected</strong></p>
+                    <p>Type: <strong id="previewType">Not selected</strong></p>
+                    <p>Quantity: <strong id="previewQuantity">1</strong></p>
+                    <p>Total: <strong id="previewTotal">$0.00</strong></p>
+                    <p id="previewPromo">Enter a promo code for a discount.</p>
+                </div>
+
+                <button type="submit">Book Tickets</button>
+            </form>
+
+            <div id="bookingResult" class="success-box"
+                 aria-live="polite" tabindex="-1"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>GameZone — JavaScript Basics, Assignment 5</p>
+        <p>IT-2512</p>
+    </footer>
+</body>
+</html>
